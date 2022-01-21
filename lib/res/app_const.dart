@@ -8,3 +8,5 @@ final Logger logger = Logger(
 );
 
 const String enDictionaryPath = 'assets/dictionary/en.json';
+const int phoneNumberLength = 10;
+const String phoneNumberHintText = '(123) 123-1234';
