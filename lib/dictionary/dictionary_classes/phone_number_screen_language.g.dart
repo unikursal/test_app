@@ -14,6 +14,10 @@ _$_PhoneNumberScreenLanguage _$$_PhoneNumberScreenLanguageFromJson(
       ($checkedConvert) {
         final val = _$_PhoneNumberScreenLanguage(
           title: $checkedConvert('title', (v) => v as String),
+          bottomSheetTitle:
+              $checkedConvert('bottomSheetTitle', (v) => v as String),
+          searchCountryTextFieldHint:
+              $checkedConvert('searchCountryTextFieldHint', (v) => v as String),
         );
         return val;
       },
@@ -23,4 +27,6 @@ Map<String, dynamic> _$$_PhoneNumberScreenLanguageToJson(
         _$_PhoneNumberScreenLanguage instance) =>
     <String, dynamic>{
       'title': instance.title,
+      'bottomSheetTitle': instance.bottomSheetTitle,
+      'searchCountryTextFieldHint': instance.searchCountryTextFieldHint,
     };

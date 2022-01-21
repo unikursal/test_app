@@ -2,6 +2,8 @@
   "name": "English",
   "code": "en",
   "phone_number_screen": {
-    "title": "Get Started"
+    "title": "Get Started",
+    "bottomSheetTitle": "Country code",
+    "searchCountryTextFieldHint": "Search"
   }
 }

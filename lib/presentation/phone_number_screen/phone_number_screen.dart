@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:phone_number_screen/dictionary/dictionary_classes/phone_number_screen_language.dart';
 import 'package:phone_number_screen/dictionary/main_dictionary.dart';
 import 'package:phone_number_screen/models/country.dart';
+import 'package:phone_number_screen/presentation/phone_number_screen/widgets/country_select_widget.dart';
 import 'package:phone_number_screen/presentation/phone_number_screen/widgets/phone_field_widget.dart';
 import 'package:phone_number_screen/presentation/shared/main_button.dart';
 import 'package:phone_number_screen/presentation/shared/result_dialog.dart';
@@ -78,7 +79,12 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
                       children: [
                         MainButton(
                           onTap: () {
-
+                            showModalBottomSheet(
+                              context: context,
+                              builder: (BuildContext _) => CountrySelectWidget(
+                                countries: countries,
+                              ),
+                            );
                           },
                           width: 71.0,
                           height: 48.0,

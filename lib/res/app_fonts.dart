@@ -26,4 +26,18 @@ class AppFonts {
     fontStyle: FontStyle.normal,
     color: AppColors.blue200,
   );
+  static final TextStyle countryNameTextStyle = GoogleFonts.inter(
+    fontSize: 16.0,
+    height: 1.25,
+    fontWeight: FontWeight.w500,
+    fontStyle: FontStyle.normal,
+    color: AppColors.white,
+  );
+  static final TextStyle phoneNumberCodeTextStyle = GoogleFonts.inter(
+    fontSize: 16.0,
+    height: 1.25,
+    fontWeight: FontWeight.w500,
+    fontStyle: FontStyle.normal,
+    color: AppColors.purple200,
+  );
 }

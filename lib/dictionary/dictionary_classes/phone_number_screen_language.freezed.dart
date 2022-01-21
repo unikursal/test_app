@@ -23,9 +23,16 @@ class _$PhoneNumberScreenLanguageTearOff {
   const _$PhoneNumberScreenLanguageTearOff();
 
   _PhoneNumberScreenLanguage call(
-      {@JsonKey(name: 'title') required String title}) {
+      {@JsonKey(name: 'title')
+          required String title,
+      @JsonKey(name: 'bottomSheetTitle')
+          required String bottomSheetTitle,
+      @JsonKey(name: 'searchCountryTextFieldHint')
+          required String searchCountryTextFieldHint}) {
     return _PhoneNumberScreenLanguage(
       title: title,
+      bottomSheetTitle: bottomSheetTitle,
+      searchCountryTextFieldHint: searchCountryTextFieldHint,
     );
   }
 
@@ -41,6 +48,10 @@ const $PhoneNumberScreenLanguage = _$PhoneNumberScreenLanguageTearOff();
 mixin _$PhoneNumberScreenLanguage {
   @JsonKey(name: 'title')
   String get title => throw _privateConstructorUsedError;
+  @JsonKey(name: 'bottomSheetTitle')
+  String get bottomSheetTitle => throw _privateConstructorUsedError;
+  @JsonKey(name: 'searchCountryTextFieldHint')
+  String get searchCountryTextFieldHint => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,7 +64,13 @@ abstract class $PhoneNumberScreenLanguageCopyWith<$Res> {
   factory $PhoneNumberScreenLanguageCopyWith(PhoneNumberScreenLanguage value,
           $Res Function(PhoneNumberScreenLanguage) then) =
       _$PhoneNumberScreenLanguageCopyWithImpl<$Res>;
-  $Res call({@JsonKey(name: 'title') String title});
+  $Res call(
+      {@JsonKey(name: 'title')
+          String title,
+      @JsonKey(name: 'bottomSheetTitle')
+          String bottomSheetTitle,
+      @JsonKey(name: 'searchCountryTextFieldHint')
+          String searchCountryTextFieldHint});
 }
 
 /// @nodoc
@@ -68,11 +85,21 @@ class _$PhoneNumberScreenLanguageCopyWithImpl<$Res>
   @override
   $Res call({
     Object? title = freezed,
+    Object? bottomSheetTitle = freezed,
+    Object? searchCountryTextFieldHint = freezed,
   }) {
     return _then(_value.copyWith(
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      bottomSheetTitle: bottomSheetTitle == freezed
+          ? _value.bottomSheetTitle
+          : bottomSheetTitle // ignore: cast_nullable_to_non_nullable
+              as String,
+      searchCountryTextFieldHint: searchCountryTextFieldHint == freezed
+          ? _value.searchCountryTextFieldHint
+          : searchCountryTextFieldHint // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -85,7 +112,13 @@ abstract class _$PhoneNumberScreenLanguageCopyWith<$Res>
           $Res Function(_PhoneNumberScreenLanguage) then) =
       __$PhoneNumberScreenLanguageCopyWithImpl<$Res>;
   @override
-  $Res call({@JsonKey(name: 'title') String title});
+  $Res call(
+      {@JsonKey(name: 'title')
+          String title,
+      @JsonKey(name: 'bottomSheetTitle')
+          String bottomSheetTitle,
+      @JsonKey(name: 'searchCountryTextFieldHint')
+          String searchCountryTextFieldHint});
 }
 
 /// @nodoc
@@ -103,11 +136,21 @@ class __$PhoneNumberScreenLanguageCopyWithImpl<$Res>
   @override
   $Res call({
     Object? title = freezed,
+    Object? bottomSheetTitle = freezed,
+    Object? searchCountryTextFieldHint = freezed,
   }) {
     return _then(_PhoneNumberScreenLanguage(
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      bottomSheetTitle: bottomSheetTitle == freezed
+          ? _value.bottomSheetTitle
+          : bottomSheetTitle // ignore: cast_nullable_to_non_nullable
+              as String,
+      searchCountryTextFieldHint: searchCountryTextFieldHint == freezed
+          ? _value.searchCountryTextFieldHint
+          : searchCountryTextFieldHint // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -119,7 +162,12 @@ class __$PhoneNumberScreenLanguageCopyWithImpl<$Res>
     fieldRename: FieldRename.snake, checked: true, explicitToJson: true)
 class _$_PhoneNumberScreenLanguage implements _PhoneNumberScreenLanguage {
   const _$_PhoneNumberScreenLanguage(
-      {@JsonKey(name: 'title') required this.title});
+      {@JsonKey(name: 'title')
+          required this.title,
+      @JsonKey(name: 'bottomSheetTitle')
+          required this.bottomSheetTitle,
+      @JsonKey(name: 'searchCountryTextFieldHint')
+          required this.searchCountryTextFieldHint});
 
   factory _$_PhoneNumberScreenLanguage.fromJson(Map<String, dynamic> json) =>
       _$$_PhoneNumberScreenLanguageFromJson(json);
@@ -127,10 +175,16 @@ class _$_PhoneNumberScreenLanguage implements _PhoneNumberScreenLanguage {
   @override
   @JsonKey(name: 'title')
   final String title;
+  @override
+  @JsonKey(name: 'bottomSheetTitle')
+  final String bottomSheetTitle;
+  @override
+  @JsonKey(name: 'searchCountryTextFieldHint')
+  final String searchCountryTextFieldHint;
 
   @override
   String toString() {
-    return 'PhoneNumberScreenLanguage(title: $title)';
+    return 'PhoneNumberScreenLanguage(title: $title, bottomSheetTitle: $bottomSheetTitle, searchCountryTextFieldHint: $searchCountryTextFieldHint)';
   }
 
   @override
@@ -138,12 +192,23 @@ class _$_PhoneNumberScreenLanguage implements _PhoneNumberScreenLanguage {
     return identical(this, other) ||
         (other is _PhoneNumberScreenLanguage &&
             (identical(other.title, title) ||
-                const DeepCollectionEquality().equals(other.title, title)));
+                const DeepCollectionEquality().equals(other.title, title)) &&
+            (identical(other.bottomSheetTitle, bottomSheetTitle) ||
+                const DeepCollectionEquality()
+                    .equals(other.bottomSheetTitle, bottomSheetTitle)) &&
+            (identical(other.searchCountryTextFieldHint,
+                    searchCountryTextFieldHint) ||
+                const DeepCollectionEquality().equals(
+                    other.searchCountryTextFieldHint,
+                    searchCountryTextFieldHint)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(title);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(title) ^
+      const DeepCollectionEquality().hash(bottomSheetTitle) ^
+      const DeepCollectionEquality().hash(searchCountryTextFieldHint);
 
   @JsonKey(ignore: true)
   @override
@@ -160,7 +225,12 @@ class _$_PhoneNumberScreenLanguage implements _PhoneNumberScreenLanguage {
 
 abstract class _PhoneNumberScreenLanguage implements PhoneNumberScreenLanguage {
   const factory _PhoneNumberScreenLanguage(
-          {@JsonKey(name: 'title') required String title}) =
+          {@JsonKey(name: 'title')
+              required String title,
+          @JsonKey(name: 'bottomSheetTitle')
+              required String bottomSheetTitle,
+          @JsonKey(name: 'searchCountryTextFieldHint')
+              required String searchCountryTextFieldHint}) =
       _$_PhoneNumberScreenLanguage;
 
   factory _PhoneNumberScreenLanguage.fromJson(Map<String, dynamic> json) =
@@ -169,6 +239,12 @@ abstract class _PhoneNumberScreenLanguage implements PhoneNumberScreenLanguage {
   @override
   @JsonKey(name: 'title')
   String get title => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'bottomSheetTitle')
+  String get bottomSheetTitle => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'searchCountryTextFieldHint')
+  String get searchCountryTextFieldHint => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$PhoneNumberScreenLanguageCopyWith<_PhoneNumberScreenLanguage>

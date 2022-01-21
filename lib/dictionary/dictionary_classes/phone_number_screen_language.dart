@@ -12,6 +12,8 @@ class PhoneNumberScreenLanguage with _$PhoneNumberScreenLanguage {
   )
   const factory PhoneNumberScreenLanguage({
     @JsonKey(name: 'title') required String title,
+    @JsonKey(name: 'bottomSheetTitle') required String bottomSheetTitle,
+    @JsonKey(name: 'searchCountryTextFieldHint') required String searchCountryTextFieldHint,
   }) = _PhoneNumberScreenLanguage;
 
   factory PhoneNumberScreenLanguage.fromJson(Map<String, dynamic> json) => _$PhoneNumberScreenLanguageFromJson(json);
