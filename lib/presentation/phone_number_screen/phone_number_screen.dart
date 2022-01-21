@@ -39,45 +39,50 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
         statusBarIconBrightness: Brightness.light,
       ),
       child: Scaffold(
-        body: Container(
-          decoration: BoxDecoration(
-            gradient: AppGradients.phoneNumberScreenBackgroundGradient,
-          ),
-          child: SizedBox.expand(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 80.0, 11.0, 160.0),
-                  child: Text(
-                    _language.title,
-                    style: AppFonts.titleTextStyle,
+        body: GestureDetector(
+          onTap: (){
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: AppGradients.phoneNumberScreenBackgroundGradient,
+            ),
+            child: SizedBox.expand(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(20.0, 80.0, 11.0, 160.0),
+                    child: Text(
+                      _language.title,
+                      style: AppFonts.titleTextStyle,
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Row(
-                    children: [
-                      MainButton(
-                        onTap: () {},
-                        width: 71.0,
-                        height: 48.0,
-                        //AppColors.purple200
-                        child: Icon(
-                          Icons.arrow_forward,
-                          color: AppColors.blue200,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Row(
+                      children: [
+                        MainButton(
+                          onTap: () {},
+                          width: 71.0,
+                          height: 48.0,
+                          //AppColors.purple200
+                          child: Icon(
+                            Icons.arrow_forward,
+                            color: AppColors.blue200,
+                          ),
+                          color: AppColors.purple10,
                         ),
-                        color: AppColors.purple10,
-                      ),
-                      const SizedBox(width: 8.0),
-                      Expanded(
-                        child: PhoneFieldWidget(),
-                      ),
-                    ],
+                        const SizedBox(width: 8.0),
+                        Expanded(
+                          child: PhoneFieldWidget(),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
