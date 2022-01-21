@@ -8,10 +8,11 @@ final Logger logger = Logger(
 );
 
 const String enDictionaryPath = 'assets/dictionary/en.json';
-const int phoneNumberLength = 10;
+const int phoneNumberLength = 14;
 const String phoneNumberHintText = '(123) 123-1234';
 const String leftBracket = '(';
 const String rightBracket = ')';
 const String space = ' ';
 const String hyphen = '-';
 const String phoneNumberPattern = r'\(?(\d{3})?\)? ?(\d{1,3})?-?(\d*)';
+const String phoneNumberAdditionalCharactersPattern = r'\(|\)|\-| ';

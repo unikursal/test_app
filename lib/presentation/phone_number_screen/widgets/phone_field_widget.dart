@@ -6,7 +6,12 @@ import 'package:phone_number_screen/res/app_fonts.dart';
 import 'package:phone_number_screen/utils/input_formatter/phone_number_input_formatter.dart';
 
 class PhoneFieldWidget extends StatefulWidget {
-  const PhoneFieldWidget({Key? key}) : super(key: key);
+  final Function(String) onChange;
+
+  const PhoneFieldWidget({
+    required this.onChange,
+    Key? key,
+  }) : super(key: key);
 
   @override
   _PhoneFieldWidgetState createState() => _PhoneFieldWidgetState();
@@ -62,7 +67,7 @@ class _PhoneFieldWidgetState extends State<PhoneFieldWidget> {
                 textDirection: TextDirection.ltr,
               )..layout();
 
-              double padding = painter.width;
+              double padding = painter.width + 3.8;
               return TextFormField(
                 cursorColor: AppColors.purple200,
                 style: AppFonts.phoneNumberTextStyle,
@@ -70,23 +75,28 @@ class _PhoneFieldWidgetState extends State<PhoneFieldWidget> {
                 controller: _controller,
                 decoration: InputDecoration(
                   border: InputBorder.none,
-                  contentPadding: const EdgeInsets.symmetric(
-                    vertical: 14.0,
-                    horizontal: 12.0,
+                  contentPadding: const EdgeInsets.only(
+                    top: 14.0,
+                    bottom: 14.0,
+                    left: 12.0,
                   ),
-                  // suffixIcon: Container(
-                  //   alignment: Alignment.centerLeft,
-                  //   margin: EdgeInsets.only(left: 12.0 + padding),
-                  //   child: Text(
-                  //     hintText,
-                  //     style: AppFonts.phoneNumberHintTextStyle,
-                  //   ),
-                  // ),
+                  suffixIconConstraints: BoxConstraints(
+                    maxWidth: constraints.maxWidth - (12.0 + padding),
+                  ),
+                  suffixIcon: Container(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      hintText,
+                      textAlign: TextAlign.left,
+                      style: AppFonts.phoneNumberHintTextStyle,
+                    ),
+                  ),
                 ),
                 inputFormatters: [
                   LengthLimitingTextInputFormatter(phoneNumberLength),
                   PhoneNumberInputFormatter(),
                 ],
+                onChanged: widget.onChange,
               );
             },
           );

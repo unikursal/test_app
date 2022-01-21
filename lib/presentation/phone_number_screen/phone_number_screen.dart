@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:phone_number_screen/dictionary/dictionary_classes/phone_number_screen_language.dart';
@@ -5,7 +7,9 @@ import 'package:phone_number_screen/dictionary/main_dictionary.dart';
 import 'package:phone_number_screen/models/country.dart';
 import 'package:phone_number_screen/presentation/phone_number_screen/widgets/phone_field_widget.dart';
 import 'package:phone_number_screen/presentation/shared/main_button.dart';
+import 'package:phone_number_screen/presentation/shared/result_dialog.dart';
 import 'package:phone_number_screen/res/app_colors.dart';
+import 'package:phone_number_screen/res/app_const.dart';
 import 'package:phone_number_screen/res/app_fonts.dart';
 import 'package:phone_number_screen/res/app_gradients.dart';
 import 'package:phone_number_screen/services/country_service/country_service.dart';
@@ -21,6 +25,8 @@ class PhoneNumberScreen extends StatefulWidget {
 class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
   late final PhoneNumberScreenLanguage _language;
   late final Future<List<Country>> countries;
+  late final ValueNotifier<bool> _valueNotifier;
+  String? _phoneNumber;
 
   @override
   void initState() {
@@ -29,6 +35,13 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
     _language = MainDictionary.instance.language.phoneNumberScreenLanguage;
 
     countries = getIt<CountryService>().getCountries();
+    _valueNotifier = ValueNotifier(false);
+  }
+
+  @override
+  void dispose() {
+    _valueNotifier.dispose();
+    super.dispose();
   }
 
   @override
@@ -40,7 +53,7 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
       ),
       child: Scaffold(
         body: GestureDetector(
-          onTap: (){
+          onTap: () {
             FocusManager.instance.primaryFocus?.unfocus();
           },
           child: Container(
@@ -64,7 +77,9 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
                     child: Row(
                       children: [
                         MainButton(
-                          onTap: () {},
+                          onTap: () {
+
+                          },
                           width: 71.0,
                           height: 48.0,
                           //AppColors.purple200
@@ -76,7 +91,9 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
                         ),
                         const SizedBox(width: 8.0),
                         Expanded(
-                          child: PhoneFieldWidget(),
+                          child: PhoneFieldWidget(
+                            onChange: _phoneTextFieldOnChange,
+                          ),
                         ),
                       ],
                     ),
@@ -86,7 +103,39 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
             ),
           ),
         ),
+        floatingActionButton: ValueListenableBuilder(
+          valueListenable: _valueNotifier,
+          builder: (BuildContext valueListenableBuilderContext, bool value, Widget? __) {
+            return MainButton(
+              onTap: () {
+                showDialog(
+                  context: valueListenableBuilderContext,
+                  barrierDismissible: true,
+                  builder: (BuildContext _) => ResultDialog(
+                    phoneNumber: _phoneNumber!,
+                  ),
+                );
+              },
+              width: 48.0,
+              height: 48.0,
+              child: Icon(
+                Icons.arrow_forward,
+                color: value ? AppColors.purple200 : AppColors.blue200,
+              ),
+              color: value ? AppColors.white : AppColors.purple10,
+            );
+          },
+        ),
       ),
     );
+  }
+
+  void _phoneTextFieldOnChange(String text) {
+    _phoneNumber = text;
+    if (text.length == phoneNumberLength) {
+      _valueNotifier.value = true;
+    } else {
+      if (_valueNotifier.value == true) _valueNotifier.value = false;
+    }
   }
 }
