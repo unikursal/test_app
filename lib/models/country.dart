@@ -6,16 +6,12 @@ part 'country.g.dart';
 
 @freezed
 class Country with _$Country{
-  @JsonSerializable(
-    fieldRename: FieldRename.snake,
-    checked: true,
-    explicitToJson: true,
-  )
   const factory Country(
   {
     @JsonKey(name: 'name') required String name,
     @JsonKey(name: 'callingCodes') required List<String> callingCodes,
     @JsonKey(name: 'flags') required Flag flag,
+    @JsonKey(name: 'alpha2Code') required String code,
 }
       ) = _Country;
 

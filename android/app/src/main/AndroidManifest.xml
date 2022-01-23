@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.phone_number_screen">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="phone_number_screen"
         android:icon="@mipmap/ic_launcher">

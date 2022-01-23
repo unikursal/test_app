@@ -125,9 +125,7 @@ class __$LanguageCopyWithImpl<$Res> extends _$LanguageCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-@JsonSerializable(
-    fieldRename: FieldRename.snake, checked: true, explicitToJson: true)
+@JsonSerializable()
 class _$_Language implements _Language {
   const _$_Language(
       {@JsonKey(name: 'phone_number_screen')

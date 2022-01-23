@@ -5,11 +5,6 @@ part 'flag.g.dart';
 
 @freezed
 class Flag with _$Flag{
-  @JsonSerializable(
-    fieldRename: FieldRename.snake,
-    checked: true,
-    explicitToJson: true,
-  )
   const factory Flag({
     @JsonKey(name: 'svg') required String urlForSvg,
     @JsonKey(name: 'png') required String urlForPng,

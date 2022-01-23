@@ -8,19 +8,10 @@ part of 'phone_number_screen_language.dart';
 
 _$_PhoneNumberScreenLanguage _$$_PhoneNumberScreenLanguageFromJson(
         Map<String, dynamic> json) =>
-    $checkedCreate(
-      r'_$_PhoneNumberScreenLanguage',
-      json,
-      ($checkedConvert) {
-        final val = _$_PhoneNumberScreenLanguage(
-          title: $checkedConvert('title', (v) => v as String),
-          bottomSheetTitle:
-              $checkedConvert('bottomSheetTitle', (v) => v as String),
-          searchCountryTextFieldHint:
-              $checkedConvert('searchCountryTextFieldHint', (v) => v as String),
-        );
-        return val;
-      },
+    _$_PhoneNumberScreenLanguage(
+      title: json['title'] as String,
+      bottomSheetTitle: json['bottomSheetTitle'] as String,
+      searchCountryTextFieldHint: json['searchCountryTextFieldHint'] as String,
     );
 
 Map<String, dynamic> _$$_PhoneNumberScreenLanguageToJson(

@@ -18,3 +18,5 @@ const String hyphen = '-';
 const String plus = '+';
 const String phoneNumberPattern = r'\(?(\d{3})?\)? ?(\d{1,3})?-?(\d*)';
 const String phoneNumberAdditionalCharactersPattern = r'\(|\)|\-| ';
+const String defaultCountryCode = 'USA';
+const double heightOfPartBackgroundPage = 42.0;

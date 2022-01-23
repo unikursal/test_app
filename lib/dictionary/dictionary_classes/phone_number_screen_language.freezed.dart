@@ -157,9 +157,7 @@ class __$PhoneNumberScreenLanguageCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-@JsonSerializable(
-    fieldRename: FieldRename.snake, checked: true, explicitToJson: true)
+@JsonSerializable()
 class _$_PhoneNumberScreenLanguage implements _PhoneNumberScreenLanguage {
   const _$_PhoneNumberScreenLanguage(
       {@JsonKey(name: 'title')

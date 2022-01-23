@@ -5,11 +5,6 @@ part 'phone_number_screen_language.g.dart';
 
 @freezed
 class PhoneNumberScreenLanguage with _$PhoneNumberScreenLanguage {
-  @JsonSerializable(
-    fieldRename: FieldRename.snake,
-    checked: true,
-    explicitToJson: true,
-  )
   const factory PhoneNumberScreenLanguage({
     @JsonKey(name: 'title') required String title,
     @JsonKey(name: 'bottomSheetTitle') required String bottomSheetTitle,

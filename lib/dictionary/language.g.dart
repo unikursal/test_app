@@ -6,22 +6,12 @@ part of 'language.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Language _$$_LanguageFromJson(Map<String, dynamic> json) => $checkedCreate(
-      r'_$_Language',
-      json,
-      ($checkedConvert) {
-        final val = _$_Language(
-          phoneNumberScreenLanguage: $checkedConvert(
-              'phone_number_screen',
-              (v) => PhoneNumberScreenLanguage.fromJson(
-                  v as Map<String, dynamic>)),
-        );
-        return val;
-      },
-      fieldKeyMap: const {'phoneNumberScreenLanguage': 'phone_number_screen'},
+_$_Language _$$_LanguageFromJson(Map<String, dynamic> json) => _$_Language(
+      phoneNumberScreenLanguage: PhoneNumberScreenLanguage.fromJson(
+          json['phone_number_screen'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_LanguageToJson(_$_Language instance) =>
     <String, dynamic>{
-      'phone_number_screen': instance.phoneNumberScreenLanguage.toJson(),
+      'phone_number_screen': instance.phoneNumberScreenLanguage,
     };

@@ -24,11 +24,13 @@ class _$CountryTearOff {
   _Country call(
       {@JsonKey(name: 'name') required String name,
       @JsonKey(name: 'callingCodes') required List<String> callingCodes,
-      @JsonKey(name: 'flags') required Flag flag}) {
+      @JsonKey(name: 'flags') required Flag flag,
+      @JsonKey(name: 'alpha2Code') required String code}) {
     return _Country(
       name: name,
       callingCodes: callingCodes,
       flag: flag,
+      code: code,
     );
   }
 
@@ -48,6 +50,8 @@ mixin _$Country {
   List<String> get callingCodes => throw _privateConstructorUsedError;
   @JsonKey(name: 'flags')
   Flag get flag => throw _privateConstructorUsedError;
+  @JsonKey(name: 'alpha2Code')
+  String get code => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -61,7 +65,8 @@ abstract class $CountryCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'name') String name,
       @JsonKey(name: 'callingCodes') List<String> callingCodes,
-      @JsonKey(name: 'flags') Flag flag});
+      @JsonKey(name: 'flags') Flag flag,
+      @JsonKey(name: 'alpha2Code') String code});
 
   $FlagCopyWith<$Res> get flag;
 }
@@ -79,6 +84,7 @@ class _$CountryCopyWithImpl<$Res> implements $CountryCopyWith<$Res> {
     Object? name = freezed,
     Object? callingCodes = freezed,
     Object? flag = freezed,
+    Object? code = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed
@@ -93,6 +99,10 @@ class _$CountryCopyWithImpl<$Res> implements $CountryCopyWith<$Res> {
           ? _value.flag
           : flag // ignore: cast_nullable_to_non_nullable
               as Flag,
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 
@@ -112,7 +122,8 @@ abstract class _$CountryCopyWith<$Res> implements $CountryCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'name') String name,
       @JsonKey(name: 'callingCodes') List<String> callingCodes,
-      @JsonKey(name: 'flags') Flag flag});
+      @JsonKey(name: 'flags') Flag flag,
+      @JsonKey(name: 'alpha2Code') String code});
 
   @override
   $FlagCopyWith<$Res> get flag;
@@ -132,6 +143,7 @@ class __$CountryCopyWithImpl<$Res> extends _$CountryCopyWithImpl<$Res>
     Object? name = freezed,
     Object? callingCodes = freezed,
     Object? flag = freezed,
+    Object? code = freezed,
   }) {
     return _then(_Country(
       name: name == freezed
@@ -146,19 +158,22 @@ class __$CountryCopyWithImpl<$Res> extends _$CountryCopyWithImpl<$Res>
           ? _value.flag
           : flag // ignore: cast_nullable_to_non_nullable
               as Flag,
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
-
-@JsonSerializable(
-    fieldRename: FieldRename.snake, checked: true, explicitToJson: true)
+@JsonSerializable()
 class _$_Country implements _Country {
   const _$_Country(
       {@JsonKey(name: 'name') required this.name,
       @JsonKey(name: 'callingCodes') required this.callingCodes,
-      @JsonKey(name: 'flags') required this.flag});
+      @JsonKey(name: 'flags') required this.flag,
+      @JsonKey(name: 'alpha2Code') required this.code});
 
   factory _$_Country.fromJson(Map<String, dynamic> json) =>
       _$$_CountryFromJson(json);
@@ -172,10 +187,13 @@ class _$_Country implements _Country {
   @override
   @JsonKey(name: 'flags')
   final Flag flag;
+  @override
+  @JsonKey(name: 'alpha2Code')
+  final String code;
 
   @override
   String toString() {
-    return 'Country(name: $name, callingCodes: $callingCodes, flag: $flag)';
+    return 'Country(name: $name, callingCodes: $callingCodes, flag: $flag, code: $code)';
   }
 
   @override
@@ -188,7 +206,9 @@ class _$_Country implements _Country {
                 const DeepCollectionEquality()
                     .equals(other.callingCodes, callingCodes)) &&
             (identical(other.flag, flag) ||
-                const DeepCollectionEquality().equals(other.flag, flag)));
+                const DeepCollectionEquality().equals(other.flag, flag)) &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)));
   }
 
   @override
@@ -196,7 +216,8 @@ class _$_Country implements _Country {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(callingCodes) ^
-      const DeepCollectionEquality().hash(flag);
+      const DeepCollectionEquality().hash(flag) ^
+      const DeepCollectionEquality().hash(code);
 
   @JsonKey(ignore: true)
   @override
@@ -213,7 +234,8 @@ abstract class _Country implements Country {
   const factory _Country(
       {@JsonKey(name: 'name') required String name,
       @JsonKey(name: 'callingCodes') required List<String> callingCodes,
-      @JsonKey(name: 'flags') required Flag flag}) = _$_Country;
+      @JsonKey(name: 'flags') required Flag flag,
+      @JsonKey(name: 'alpha2Code') required String code}) = _$_Country;
 
   factory _Country.fromJson(Map<String, dynamic> json) = _$_Country.fromJson;
 
@@ -226,6 +248,9 @@ abstract class _Country implements Country {
   @override
   @JsonKey(name: 'flags')
   Flag get flag => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'alpha2Code')
+  String get code => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$CountryCopyWith<_Country> get copyWith =>

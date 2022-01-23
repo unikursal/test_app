@@ -23,7 +23,7 @@ class CustomListTile extends StatelessWidget {
             width: 38.0,
             child: SvgPicture.network(
               country.flag.urlForSvg,
-              fit: BoxFit.fitHeight,
+              fit: BoxFit.contain,
             ),
           ),
           Container(

@@ -6,11 +6,6 @@ part 'language.g.dart';
 
 @freezed
 class Language with _$Language {
-  @JsonSerializable(
-    fieldRename: FieldRename.snake,
-    checked: true,
-    explicitToJson: true,
-  )
   const factory Language({
     @JsonKey(name: 'phone_number_screen') required PhoneNumberScreenLanguage phoneNumberScreenLanguage,
   }) = _Language;

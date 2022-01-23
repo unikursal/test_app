@@ -123,9 +123,7 @@ class __$FlagCopyWithImpl<$Res> extends _$FlagCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-@JsonSerializable(
-    fieldRename: FieldRename.snake, checked: true, explicitToJson: true)
+@JsonSerializable()
 class _$_Flag implements _Flag {
   const _$_Flag(
       {@JsonKey(name: 'svg') required this.urlForSvg,
